@@ -29,7 +29,8 @@ set (Boost_MULTITHREADED ON)
 set (Boost_USE_STATIC_RUNTIME OFF)
 
 find_package(Boost 1.58 REQUIRED
-    COMPONENTS filesystem
+    COMPONENTS system
+               filesystem
                program_options
                locale)
 
@@ -37,10 +38,12 @@ MESSAGE(STATUS "boost info")
 MESSAGE(STATUS "${Boost_INCLUDE_DIR}")
 MESSAGE(STATUS "${Boost_LIBRARIES}")
 
-list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules" )
+list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_utility/CMakeModules" )
 
 find_package(CryptoPP REQUIRED)
-find_package(RocksDB)
+if (NOT TARGET rocksdb)
+    find_package(RocksDB)
+endif()
 #if(ROCKSDB_FOUND)
 #    set(GLOB_ROCKSDB_FOUND 1 CACHE STRING "${ROCKSDB_INCLUDE_DIR}")
 #endif()
