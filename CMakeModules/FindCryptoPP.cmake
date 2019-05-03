@@ -9,11 +9,7 @@ unset( CRYPTOPP_INCLUDE_DIR )
 
 message( STATUS "Looking for Crypto++" )
 
-if (BUILD_SHARED_LIBS)
-    find_library( CRYPTOPP_LIBRARIES NAMES "cryptopp" )
-else(BUILD_SHARED_LIBS)
-    find_library( CRYPTOPP_LIBRARIES NAMES "cryptlib" )
-endif(BUILD_SHARED_LIBS)
+find_library( CRYPTOPP_LIBRARIES NAMES "cryptopp" )
 
 find_path( CRYPTOPP_INCLUDE_DIR "cryptopp/integer.h" )
 if( NOT CRYPTOPP_INCLUDE_DIR )
