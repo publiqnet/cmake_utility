@@ -29,7 +29,7 @@ endif()
 set (Boost_MULTITHREADED ON)
 set (Boost_USE_STATIC_RUNTIME OFF)
 
-find_package(Boost 1.53 REQUIRED
+find_package(Boost 1.58 REQUIRED
     COMPONENTS system
                filesystem
                program_options
