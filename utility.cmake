@@ -16,7 +16,6 @@ if( APPLE )
               "${HOMEBREW_PREFIX}/opt/pbc"
               "${HOMEBREW_PREFIX}/opt/gmp"
               "${HOMEBREW_PREFIX}/opt/cryptopp"
-              "${HOMEBREW_PREFIX}/opt/rocksdb"
               "${HOMEBREW_PREFIX}/opt/qt5"
             )
     endif()
@@ -42,11 +41,5 @@ MESSAGE(STATUS "${Boost_LIBRARIES}")
 list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_utility/CMakeModules" )
 
 find_package(CryptoPP REQUIRED)
-if (NOT TARGET rocksdb)
-    find_package(RocksDB)
-endif()
-#if(ROCKSDB_FOUND)
-#    set(GLOB_ROCKSDB_FOUND 1 CACHE STRING "${ROCKSDB_INCLUDE_DIR}")
-#endif()
 
 
